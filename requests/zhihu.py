@@ -12,5 +12,11 @@ head = {
 
 res_text = requests.get(url, headers=head).text
 
-res_soup = BeautifulSoup(res_text, features='lxml')
-print(res_soup.prettify())
+# 格式化
+# res_soup = BeautifulSoup(res_text, features='lxml').prettify()
+
+res_soup = BeautifulSoup(res_text, "html.parser")
+print(res_soup.title)
+# print(res_soup.head)
+# print(res_soup.body)
+print(res_soup.p)
