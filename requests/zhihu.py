@@ -15,8 +15,13 @@ res_text = requests.get(url, headers=head).text
 # 格式化
 # res_soup = BeautifulSoup(res_text, features='lxml').prettify()
 
-res_soup = BeautifulSoup(res_text, "html.parser")
-print(res_soup.title)
-# print(res_soup.head)
-# print(res_soup.body)
-print(res_soup.p)
+res_soup = BeautifulSoup(res_text, "lxml")
+elements = res_soup.findAll('section')
+print(len(elements))
+for index, value in enumerate(elements):
+    print(index + 1)
+    print(value.find_all('a')[0]['title'])
+    if len(value.find_all('p')) == 1:
+        print(value.find_all('p')[0].string)
+    else:
+        print('None')
