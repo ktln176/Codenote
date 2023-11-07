@@ -12,23 +12,12 @@ def get_random_user_agent() -> str:
     return user_agent_list[random.randint(0, len(user_agent_list) - 1)]
 
 
-def test_get_random_user_agent():
-    res = get_random_user_agent()
-    print(res)
-
-
 def get_cookie_txt(filename: str or path) -> str:
-    """返回指定cookie文本"""
+    """
+    返回指定txt文件字符串
+    :param filename: txt文件名称
+    :return: txt文本str
+    """
     with open(rf'../static/{filename}.txt', 'r', encoding='utf-8') as f:
-        cookie_txt = ''.join(i for i in f).replace('\n', '')
-    return cookie_txt
-
-
-def test_get_cookie_txt():
-    res = get_cookie_txt('zhihu_cookie')
-    print(res)
-
-
-if __name__ == '__main__':
-    test_get_random_user_agent()
-    test_get_cookie_txt()
+        text = ''.join(i for i in f).replace('\n', '')
+    return text
