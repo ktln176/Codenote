@@ -1,13 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 
-from common import module
+from module import Common
 
 url = r'https://top.baidu.com/board?tab=realtime'
 
 head = {
-    'Cookie': module.get_cookie_txt('baidu_cookie'),
-    'User-Agent': module.get_random_user_agent()
+    'Cookie': Common.get_cookie_txt('baidu_cookie'),
+    'User-Agent': Common.get_random_user_agent()
 }
 
 res_text = requests.get(url, headers=head).text

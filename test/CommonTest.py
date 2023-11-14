@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-import Common
+from module import Common
 
 
 class Test(TestCase):
